@@ -191,7 +191,7 @@ namespace PlanarQeDisplay
 		public StatusMonitorBase CommunicationMonitor { get; private set; }
 
 		private const string CmdDelimiter = "\x0D";
-		private const string GatherDelimiter = "\x0A";
+		private const string GatherDelimiter = "\x0D";
 
 		private readonly GenericQueue _receiveQueue;
 
@@ -309,7 +309,7 @@ namespace PlanarQeDisplay
 					}
 				default:
 					{
-						Debug.Console(DebugVerbose, this, "ProcessRespopnse: unknown response '{0}'", responseType);
+						Debug.Console(DebugNotice, this, "ProcessRespopnse: unknown response '{0}'", responseType);
 						break;
 					}
 			}
@@ -462,27 +462,27 @@ namespace PlanarQeDisplay
 		{
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.HdmiIn1, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi1), this), "HDMI.1");
+					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi1), this), "hdmi.1");
 
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.HdmiIn2, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi2), this), "HDMI.2");
+					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi2), this), "hdmi.2");
 
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.HdmiIn3, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi3), this), "HDMI.3");
+					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi3), this), "hdmi.3");
 
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.HdmiIn4, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi4), this), "HDMI.4");
+					eRoutingPortConnectionType.Hdmi, new Action(InputHdmi4), this), "hdmi.4");
 
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.DisplayPortIn1, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.DisplayPort, new Action(InputDisplayPort1), this), "DP");
+					eRoutingPortConnectionType.DisplayPort, new Action(InputDisplayPort1), this), "dp");
 
 			AddRoutingInputPort(
 				new RoutingInputPort(RoutingPortNames.IpcOps, eRoutingSignalType.Audio | eRoutingSignalType.Video,
-					eRoutingPortConnectionType.None, new Action(InputOps), this), "OPS");
+					eRoutingPortConnectionType.None, new Action(InputOps), this), "ops");
 
 			// initialize feedbacks after adding input ports
 			_inputFeedback = new List<bool>();
@@ -801,7 +801,6 @@ namespace PlanarQeDisplay
 		{
 			PowerGet();
 			if (!PowerIsOn) return;
-
 			CrestronEnvironment.Sleep(2000);
 			InputGet();
 		}
@@ -813,7 +812,9 @@ namespace PlanarQeDisplay
 		private uint DebugNotice { get; set; }
 		private uint DebugVerbose { get; set; }
 
-
+		/// <summary>
+		/// Initializes and resets debug levels to default
+		/// </summary>
 		public void ResetDebugLevels()
 		{
 			DebugTrace = 0;
@@ -821,8 +822,14 @@ namespace PlanarQeDisplay
 			DebugVerbose = 2;
 		}
 
+		/// <summary>
+		/// Sets debug levels to value passed in
+		/// </summary>
+		/// <param name="level"></param>
 		public void SetDebugLevels(uint level)
 		{
+			if (level > 2) return;
+
 			DebugTrace = level;
 			DebugNotice = level;
 			DebugVerbose = level;
