@@ -9,11 +9,11 @@
     <owners>pepperdash</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
-    <projectUrl>https://github.com/PepperDash-Engineering/epi-display-planar-qe</projectUrl>
+    <projectUrl>https://github.com/PepperDash/epi-display-planar-qe</projectUrl>
     <copyright>Copyright 2022</copyright>
     <description>This software is a plugin designed to work as a part of PepperDash Essentials for Crestron control processors.  It provides control and feedback for Planar QE Series Display.</description>
     <tags>crestron 3series 4series planar</tags>
-    <repository type="git" url="https://github.com/PepperDash-Engineering/epi-display-planar-qe"/>    
+    <repository type="git" url="https://github.com/PepperDash/epi-display-planar-qe"/>    
   </metadata>
   <files>
     <file src="**" target="lib\net35"/>
