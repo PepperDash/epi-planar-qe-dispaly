@@ -1,3 +1,5 @@
+![PepperDash Essentials Plugin Logo](/images/essentials-plugin-blue.png)
+
 # Planar QE Series Display Essentials Plugin (c) 2022
 
 ## Overview

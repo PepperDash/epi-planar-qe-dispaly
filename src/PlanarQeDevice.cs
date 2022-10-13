@@ -799,9 +799,13 @@ namespace PlanarQeDisplay
 		/// </summary>
 		public void StatusGet()
 		{
-			PowerGet();
+			//PowerGet();
+			SendText("SYSTEM.STATE?");
+
 			if (!PowerIsOn) return;
+			
 			CrestronEnvironment.Sleep(2000);
+			
 			InputGet();
 		}
 
