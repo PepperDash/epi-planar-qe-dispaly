@@ -9,6 +9,7 @@ using PepperDash.Essentials.Core.Bridges;
 using PepperDash.Essentials.Core.Queues;
 using PepperDash.Essentials.Core.Routing;
 using PepperDash.Essentials.Devices.Displays;
+using PepperDash.Essentials.Devices.Common.Displays;
 
 namespace PlanarQeDisplay
 {
@@ -120,9 +121,10 @@ namespace PlanarQeDisplay
 
 				trilist.SetSigTrueAction((ushort)(joinMap.InputSelectOffset.JoinNumber + inputIndex), () =>
 				{
-					Debug.Console(DebugVerbose, this, "InputSelect Digital-'{0}'", inputIndex);
-					SetInput = inputIndex;
+					Debug.Console(DebugVerbose, this, "InputSelect Digital-'{0}'", inputIndex + 1);
+					SetInput = inputIndex + 1;
 				});
+                Debug.Console(2, this, "Setting Input Select Action on Digital Join {0} to Input: {1}", joinMap.InputSelectOffset.JoinNumber + inputIndex, this.InputPorts[input.Key.ToString()].Key.ToString());
 
 				trilist.StringInput[(ushort)(joinMap.InputNamesOffset.JoinNumber + inputIndex)].StringValue = string.IsNullOrEmpty(input.Key) ? string.Empty : input.Key;
 

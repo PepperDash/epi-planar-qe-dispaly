@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "epi-planar-qe-display.4series", "src\epi-planar-qe-display.4series.csproj", "{3231434D-C5C2-48E4-A069-93D87C599A8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3231434D-C5C2-48E4-A069-93D87C599A8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3231434D-C5C2-48E4-A069-93D87C599A8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3231434D-C5C2-48E4-A069-93D87C599A8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3231434D-C5C2-48E4-A069-93D87C599A8A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4C4841A9-4782-4FD0-AEE0-CC6A63C8BBDF}
+	EndGlobalSection
+EndGlobal

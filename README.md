@@ -6,6 +6,9 @@
 
 This plugin is designed to work with Planar QE Series Displays controlled via RS-232 and  TCP/IP. For config information, see the [config snippets](##Configuration)
 
+Other supported models:
+UltraRes L Series
+
 ## Configuration
 
 ### RS-232
